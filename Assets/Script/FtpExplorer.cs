@@ -159,12 +159,12 @@ public class FtpExplorer : MonoBehaviour
                     if (folderName.EndsWith("/"))
                     {
 
-                        FolderDisplayer.ElementButton element = new FolderDisplayer.ElementButton(folderName, downloadLink, () => NavigateToUrl(downloadLink), FolderDisplayer.ElementButton.ElementType.Folder);
+                        FolderDisplayer.ElementButton element = new FolderDisplayer.ElementButton(folderName, downloadLink, () => NavigateToUrl(downloadLink), FolderDisplayer.ElementButton.ElementType.Folder, "");
                         elements.Add(element);
                     }
                     else
                     {
-                        FolderDisplayer.ElementButton element = new FolderDisplayer.ElementButton(fileName, downloadLink, () => { DownloadFile(downloadLink, fileName, size); }, FolderDisplayer.ElementButton.ElementType.File);
+                        FolderDisplayer.ElementButton element = new FolderDisplayer.ElementButton(fileName, downloadLink, () => { DownloadFile(downloadLink, fileName, size); }, FolderDisplayer.ElementButton.ElementType.File, size);
                         elements.Add(element);
                     }
 

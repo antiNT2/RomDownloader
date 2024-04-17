@@ -59,6 +59,7 @@ public class FolderDisplayer : MonoBehaviour
         public string fullPath;
         public Action action;
         public ElementType type;
+        public string fileSize;
 
         public enum ElementType
         {
@@ -66,14 +67,15 @@ public class FolderDisplayer : MonoBehaviour
             File
         }
 
-        public ElementButton(string name, string fullPath, Action action, ElementType type)
+        public ElementButton(string name, string fullPath, Action action, ElementType type, string fileSize)
         {
             this.displayName = name;
             this.fullPath = fullPath;
             this.action = action;
             this.type = type;
+            this.fileSize = fileSize;
         }
 
-        public string DisplayName => type == ElementType.Folder ? $"[{displayName}]/" : displayName;
+        public string DisplayName => type == ElementType.Folder ? $"[{displayName}]/" : $"{displayName} {fileSize}";
     }
 }

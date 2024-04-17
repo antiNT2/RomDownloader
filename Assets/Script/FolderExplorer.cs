@@ -44,8 +44,13 @@ public class FolderExplorer : MonoBehaviour
 
         if ((Keyboard.current?.escapeKey.wasPressedThisFrame ?? false) || (Gamepad.current?.startButton.wasPressedThisFrame ?? false))
         {
-            Application.Quit();
+            CloseApp();
         }
+    }
+
+    public void CloseApp()
+    {
+        Application.Quit();
     }
 
     string GetDirectoryParentPath(string directory)
@@ -57,7 +62,7 @@ public class FolderExplorer : MonoBehaviour
     {
         currentFolder = path;
         List<FolderDisplayer.ElementButton> content = GetDirectoryContent(path);
-        content.Insert(0, new FolderDisplayer.ElementButton("..", GetDirectoryParentPath(path), () => NavigateToPath(GetDirectoryParentPath(path)), FolderDisplayer.ElementButton.ElementType.Folder));
+        content.Insert(0, new FolderDisplayer.ElementButton("..", GetDirectoryParentPath(path), () => NavigateToPath(GetDirectoryParentPath(path)), FolderDisplayer.ElementButton.ElementType.Folder, ""));
         if (content == null)
         {
             directoryDisplay.text = $"Error accessing {path}";
@@ -114,13 +119,19 @@ public class FolderExplorer : MonoBehaviour
             List<FolderDisplayer.ElementButton> elements = new List<FolderDisplayer.ElementButton>();
             foreach (string d in directories)
             {
-                FolderDisplayer.ElementButton element = new FolderDisplayer.ElementButton(Path.GetFileName(d), d, () => NavigateToPath(d), FolderDisplayer.ElementButton.ElementType.Folder);
+                FolderDisplayer.ElementButton element = new FolderDisplayer.ElementButton(Path.GetFileName(d), d, () => NavigateToPath(d), FolderDisplayer.ElementButton.ElementType.Folder, "");
                 elements.Add(element);
             }
 
             foreach (string f in files)
             {
-                FolderDisplayer.ElementButton element = new FolderDisplayer.ElementButton(Path.GetFileName(f), f, () => { }, FolderDisplayer.ElementButton.ElementType.File);
+                int fileSizeInBytes = (int)new FileInfo(f).Length;
+                float fileSizeInMB = fileSizeInBytes / 1024f / 1024f;
+                fileSizeInMB = Mathf.Round(fileSizeInMB * 100f) / 100f;
+
+                string fileSize = $"{fileSizeInMB} MB";
+
+                FolderDisplayer.ElementButton element = new FolderDisplayer.ElementButton(Path.GetFileName(f), f, () => { }, FolderDisplayer.ElementButton.ElementType.File, fileSize);
                 elements.Add(element);
             }
 
