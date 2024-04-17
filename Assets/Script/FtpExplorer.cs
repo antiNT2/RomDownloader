@@ -5,6 +5,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.IO.Compression;
 using System.Net.Http;
 using System.Security.Policy;
 using System.Threading;
@@ -28,49 +29,16 @@ public class FtpExplorer : MonoBehaviour
 
     AsyncFtpClient client;
 
-    string currentFolder;
 
     bool isConnected = true;
 
-    CancellationTokenSource downloadCancelTokenSource;
-    CancellationToken downloadCancelToken;
-
     string serverUrl = "https://myrient.erista.me/files";
 
-    private async void Start()
-    {
-        client = new AsyncFtpClient(ftpServer, ftpUser, ftpPassword);
+    string lastUrl = "";
 
-        // connect to the server and automatically detect working FTP settings
-
-        //FtpProfile ftpProfile = new FtpProfile();
-        //ftpProfile.Host = ftpServer;
-        //ftpProfile.Credentials = new System.Net.NetworkCredential(ftpUser, ftpPassword);
-        //ftpProfile.Protocols = System.Security.Authentication.SslProtocols.None;
-        //ftpProfile.Encryption = FtpEncryptionMode.None;
-        //ftpProfile.Encoding = System.Text.Encoding.UTF8;
-
-
-        //await client.Connect(ftpProfile);
-        ////await client.AutoConnect();
-
-        //currentFolder = await client.GetWorkingDirectory();
-
-        //Debug.Log("Connected to " + currentFolder);
-
-        //isConnected = true;
-
-        //NavigateToPath(await client.GetWorkingDirectory());
-    }
 
     private void Update()
     {
-        if ((Keyboard.current?.backspaceKey.wasPressedThisFrame ?? false) || (Gamepad.current?.selectButton.wasPressedThisFrame ?? false))
-        {
-            // Cancel download
-            downloadCancelTokenSource?.Cancel();
-        }
-
         if (Input.GetKeyDown(KeyCode.T))
         {
             TestScraper();
@@ -79,7 +47,12 @@ public class FtpExplorer : MonoBehaviour
 
     public async void NavigateToLastUrl()
     {
-        NavigateToUrl(serverUrl);
+        if (lastUrl == "")
+        {
+            lastUrl = serverUrl;
+        }
+
+        NavigateToUrl(lastUrl);
     }
 
     public async void NavigateToUrl(string path)
@@ -90,7 +63,6 @@ public class FtpExplorer : MonoBehaviour
             return;
         }
 
-        currentFolder = path;
         List<FolderDisplayer.ElementButton> content = await GetDirectoryContent(path);
         //content.Insert(0, new FolderDisplayer.ElementButton("..", GetDirectoryParentPath(path), () => NavigateToPath(GetDirectoryParentPath(path)), FolderDisplayer.ElementButton.ElementType.Folder));
         if (content == null)
@@ -99,8 +71,9 @@ public class FtpExplorer : MonoBehaviour
             return;
         }
 
+        lastUrl = path;
         folderDisplayer.DisplayFilesAndFolders(content.ToArray());
-        directoryDisplay.text = $"[{System.DateTime.Now}][FTP] {path} ({content.Count} elements)";
+        directoryDisplay.text = $"[{System.DateTime.Now}] {path} ({content.Count} elements)";
     }
 
     public async Task<List<FolderDisplayer.ElementButton>> GetDirectoryContent(string url)
@@ -126,6 +99,12 @@ public class FtpExplorer : MonoBehaviour
                 {
 
                     string downloadLink = link.GetAttributeValue("href", string.Empty);
+
+                    // Get the file size from <td class="size">...</td> (sibling node of the link's parent node)
+                    var sizeNode = link.ParentNode.SelectSingleNode("following-sibling::td[@class='size']");
+
+                    string size = sizeNode?.InnerText ?? string.Empty;
+
                     if (downloadLink == "../")
                     {
                         // Go to parent directory by removing last part of the URL
@@ -155,7 +134,7 @@ public class FtpExplorer : MonoBehaviour
                     }
                     else
                     {
-                        FolderDisplayer.ElementButton element = new FolderDisplayer.ElementButton(fileName, downloadLink, () => { DownloadFile(downloadLink); }, FolderDisplayer.ElementButton.ElementType.File);
+                        FolderDisplayer.ElementButton element = new FolderDisplayer.ElementButton(fileName, downloadLink, () => { DownloadFile(downloadLink, fileName, size); }, FolderDisplayer.ElementButton.ElementType.File);
                         elements.Add(element);
                     }
 
@@ -178,43 +157,115 @@ public class FtpExplorer : MonoBehaviour
         }
     }
 
-    async void DownloadFile(string remotePath)
+    async void DownloadFile(string remotePath, string filename, string size)
     {
+        directoryDisplay.text = $"Downloading {filename} ({size})...";
 
-        Application.OpenURL(remotePath);
+        string localPath = folderExplorer.currentFolder;
+
+        // Download the file through HTTP
+        var client = new HttpClient();
+        var fileBytes = await client.GetByteArrayAsync(remotePath);
+
+        // Save the file to the local path
+        var filePath = System.IO.Path.Combine(localPath, filename);
+        await System.IO.File.WriteAllBytesAsync(filePath, fileBytes);
+
+        directoryDisplay.text = $"Downloaded {filename} to {localPath}";
+
+        ExtractZipFile(filePath);
     }
 
-    async Task DownloadFileAsync(string remotePath)
+    async void ExtractZipFile(string filePath)
     {
-        var token = new CancellationToken();
-        string localPath = folderExplorer.currentFolder;
-        string fileName = Path.GetFileName(remotePath);
-
-        directoryDisplay.text = $"Downloading {remotePath} to {localPath}";
-
-        using (var ftp = new AsyncFtpClient(ftpServer, ftpUser, ftpPassword, ftpPort))
+        try
         {
-            await ftp.Connect(token);
+            await ExtractZipFileAsync(filePath);
 
-            // define the progress tracking callback
-            Progress<FtpProgress> progress = new Progress<FtpProgress>(x =>
-            {
-                if (x.Progress == 1)
-                {
-                    // all done!
-                }
-                else
-                {
-                    // percent done = (p.Progress * 100)
-                    directoryDisplay.text = $"DL {fileName} to {localPath}... ({x.TransferSpeed} B/s) ({x.Progress}%) (ETA: {x.ETA})";
-                }
-            });
+            // Delete the zip file after extraction
+            System.IO.File.Delete(filePath);
+        }
+        catch (Exception ex)
+        {
+            directoryDisplay.text = $"Error extracting {filePath}: {ex.Message}";
+        }
 
-            // download a file and ensure the local directory is created
-            await ftp.DownloadFile(Path.Combine(localPath, fileName), remotePath, FtpLocalExists.Resume, FtpVerify.None, progress, token);
+        async Task ExtractZipFileAsync(string filePath)
+        {
+            string localPath = folderExplorer.currentFolder;
 
+            // Extraction path is the zip file's directory
+            string extractPath = System.IO.Path.GetDirectoryName(filePath);
+
+            directoryDisplay.text = $"Extracting {filePath} to {extractPath}...";
+
+            // Extract the zip file
+            await Task.Run(() => ZipFile.ExtractToDirectory(filePath, extractPath));
+
+            directoryDisplay.text = $"Extracted {filePath} to {localPath}. Download complete";
         }
     }
+
+    //async void DownloadFile(string remotePath, string filename)
+    //{
+    //    // Create progress reporter
+    //    var progress = new Progress<(long, long, double)>(progress =>
+    //    {
+    //        // Progress reporting logic
+    //        var (bytesReceived, totalBytes, elapsedTime) = progress;
+    //        var progressPercentage = totalBytes <= 0 ? 0 : (double)bytesReceived / totalBytes * 100;
+    //        var speed = bytesReceived / elapsedTime / 1024; // Speed in KB/s
+
+    //        double totalSizeInMB = totalBytes / 1024d / 1024d;
+    //        // Round to 2 decimal places
+    //        totalSizeInMB = Math.Round(totalSizeInMB, 2);
+
+    //        directoryDisplay.text = $"{filename} ({totalSizeInMB} MB) {progressPercentage:F2}% at {speed:F2} KB/s";
+    //    });
+
+    //    // Call the DownloadFile method with the progress reporter
+    //    await DownloadFileTask(remotePath, filename, progress);
+    //}
+
+    async Task DownloadFileTask(string remotePath, string filename, IProgress<(long, long, double)> progressReporter)
+    {
+        directoryDisplay.text = $"Downloading {filename} from {remotePath}...";
+
+        string localPath = folderExplorer.currentFolder;
+
+        // Download the file through HTTP
+        var client = new HttpClient();
+        using (var response = await client.GetAsync(remotePath, HttpCompletionOption.ResponseHeadersRead))
+        {
+            if (!response.IsSuccessStatusCode)
+            {
+                // Handle error
+                return;
+            }
+
+            var totalBytes = response.Content.Headers.ContentLength ?? -1L;
+            var readBytes = 0L;
+            int bufferSize = 8388608; // 8 MB buffer size
+            var buffer = new byte[bufferSize]; // 8 MB buffer size
+
+            using (var contentStream = await response.Content.ReadAsStreamAsync())
+            using (var fileStream = new FileStream(Path.Combine(localPath, filename), FileMode.Create, FileAccess.Write, FileShare.None, bufferSize, true))
+            {
+                int bytesRead;
+                var stopwatch = System.Diagnostics.Stopwatch.StartNew();
+                while ((bytesRead = await contentStream.ReadAsync(buffer, 0, buffer.Length)) > 0)
+                {
+                    await fileStream.WriteAsync(buffer, 0, bytesRead);
+                    readBytes += bytesRead;
+                    var progress = (readBytes, totalBytes, stopwatch.Elapsed.TotalSeconds);
+                    progressReporter?.Report(progress);
+                }
+            }
+        }
+
+        directoryDisplay.text = $"Downloaded {filename} to {localPath}";
+    }
+
 
     async void TestScraper()
     {
@@ -272,10 +323,5 @@ public class FtpExplorer : MonoBehaviour
         {
             Debug.Log($"Error: {ex}");
         }
-    }
-
-    private void OnDestroy()
-    {
-        client.Disconnect();
     }
 }
