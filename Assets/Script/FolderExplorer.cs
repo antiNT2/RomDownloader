@@ -149,7 +149,7 @@ public class FolderExplorer : MonoBehaviour
                 break;
             case ViewType.Server:
                 folderDisplayer.DisplayFilesAndFolders(new FolderDisplayer.ElementButton[] { });
-                ftpExplorer.NavigateToPath("/");
+                ftpExplorer.NavigateToLastUrl();
                 break;
         }
     }
