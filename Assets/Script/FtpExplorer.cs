@@ -36,6 +36,11 @@ public class FtpExplorer : MonoBehaviour
 
     string lastUrl = "";
 
+    private void Start()
+    {
+        // TestServerResponse();
+    }
+
 
     private void Update()
     {
@@ -67,7 +72,7 @@ public class FtpExplorer : MonoBehaviour
         //content.Insert(0, new FolderDisplayer.ElementButton("..", GetDirectoryParentPath(path), () => NavigateToPath(GetDirectoryParentPath(path)), FolderDisplayer.ElementButton.ElementType.Folder));
         if (content == null)
         {
-            directoryDisplay.text = $"Error accessing {path}";
+            //directoryDisplay.text = $"Error accessing {path}";
             return;
         }
 
@@ -76,17 +81,42 @@ public class FtpExplorer : MonoBehaviour
         directoryDisplay.text = $"[{System.DateTime.Now}] {path} ({content.Count} elements)";
     }
 
+    public async void TestServerResponse()
+    {
+        // Connect to the server and display the returned HTTP code and message
+
+        var client = new HttpClient();
+        var response = await client.GetAsync(serverUrl);
+        directoryDisplay.text = $"{response.ReasonPhrase} {response}";
+    }
+
     public async Task<List<FolderDisplayer.ElementButton>> GetDirectoryContent(string url)
     {
         try
         {
             List<FolderDisplayer.ElementButton> elements = new List<FolderDisplayer.ElementButton>();
 
-            var client = new HttpClient();
+            var handler = new HttpClientHandler()
+            {
+                AllowAutoRedirect = true,
+                MaxAutomaticRedirections = 10,
+
+            };
+
+            var client = new HttpClient(handler);
 
             Debug.Log($"Getting content for {url}");
 
-            var response = await client.GetStringAsync(url);
+            string clientUrl = url;
+
+            // Make sure the URL ends with a slash
+            if (!clientUrl.EndsWith("/"))
+            {
+                clientUrl += "/";
+            }
+
+            var response = await client.GetStringAsync(clientUrl);
+
             var doc = new HtmlDocument();
             doc.LoadHtml(response);
 
@@ -152,13 +182,14 @@ public class FtpExplorer : MonoBehaviour
         }
         catch (System.Exception ex)
         {
-            directoryDisplay.text = $"Error accessing {url}: {ex.Message}";
+            directoryDisplay.text = $"Error accessing {url}: {ex.Message} {ex.InnerException}";
             return null;
         }
     }
 
     async void DownloadFile(string remotePath, string filename, string size)
     {
+
         directoryDisplay.text = $"Downloading {filename} ({size})...";
 
         string localPath = folderExplorer.currentFolder;

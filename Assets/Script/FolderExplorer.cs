@@ -72,7 +72,8 @@ public class FolderExplorer : MonoBehaviour
     {
         if (Application.platform == RuntimePlatform.LinuxPlayer)
         {
-            return $"/userdata/roms";
+            if (Directory.Exists("/userdata/roms"))
+                return $"/userdata/roms";
         }
         return System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
     }
@@ -132,7 +133,7 @@ public class FolderExplorer : MonoBehaviour
         }
     }
 
-   public void ToggleView()
+    public void ToggleView()
     {
         SetView(currentView == ViewType.Local ? ViewType.Server : ViewType.Local);
     }
