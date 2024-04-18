@@ -1,0 +1,1941 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GScraper</name>
+    </assembly>
+    <members>
+        <member name="M:GScraper.Brave.BraveColorConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc />
+        </member>
+        <member name="M:GScraper.Brave.BraveColorConverter.Write(System.Text.Json.Utf8JsonWriter,System.Drawing.Color,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc />
+        </member>
+        <member name="T:GScraper.Brave.BraveCountries">
+            <summary>
+            Contains the possible countries in Brave search.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveCountries.All">
+            <summary>
+            All regions.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveCountries.Argentina">
+            <summary>
+            Argentina.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveCountries.Australia">
+            <summary>
+            Australia.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveCountries.Belgium">
+            <summary>
+            Belgium.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveCountries.Brazil">
+            <summary>
+            Brazil.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveCountries.Canada">
+            <summary>
+            Canada.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveCountries.Chile">
+            <summary>
+            Chile.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveCountries.Denmark">
+            <summary>
+            Denmark.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveCountries.Finland">
+            <summary>
+            Finland.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveCountries.France">
+            <summary>
+            France.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveCountries.Germany">
+            <summary>
+            Germany.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveCountries.HongKong">
+            <summary>
+            Hong Kong.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveCountries.India">
+            <summary>
+            India.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveCountries.Indonesia">
+            <summary>
+            Indonesia.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveCountries.Italy">
+            <summary>
+            Italy.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveCountries.Japan">
+            <summary>
+            Japan.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveCountries.Korea">
+            <summary>
+            Korea.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveCountries.Malaysia">
+            <summary>
+            Malaysia.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveCountries.Mexico">
+            <summary>
+            Mexico.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveCountries.Netherlands">
+            <summary>
+            Netherlands.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveCountries.NewZealand">
+            <summary>
+            New Zealand.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveCountries.Norway">
+            <summary>
+            Norway.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveCountries.China">
+            <summary>
+            China.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveCountries.Poland">
+            <summary>
+            Poland.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveCountries.Portugal">
+            <summary>
+            Portugal.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveCountries.Philippines">
+            <summary>
+            Philippines.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveCountries.Russia">
+            <summary>
+            Russia.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveCountries.SaudiArabia">
+            <summary>
+            Saudi Arabia.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveCountries.SouthAfrica">
+            <summary>
+            South Africa.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveCountries.Spain">
+            <summary>
+            Spain.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveCountries.Sweden">
+            <summary>
+            Sweden.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveCountries.Switzerland">
+            <summary>
+            Switzerland.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveCountries.Taiwan">
+            <summary>
+            Taiwan.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveCountries.Turkey">
+            <summary>
+            Turkey.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveCountries.UnitedKingdom">
+            <summary>
+            United Kingdom.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveCountries.UnitedStates">
+            <summary>
+            United States.
+            </summary>
+        </member>
+        <member name="T:GScraper.Brave.BraveImageColor">
+            <summary>
+            Specifies the image colors in Brave search.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveImageColor.All">
+            <summary>
+            All colors.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveImageColor.Monochrome">
+            <summary>
+            Black and white.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveImageColor.ColorOnly">
+            <summary>
+            Only colors.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveImageColor.Red">
+            <summary>
+            Red color.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveImageColor.Orange">
+            <summary>
+            Orange color.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveImageColor.Yellow">
+            <summary>
+            Yellow color.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveImageColor.Green">
+            <summary>
+            Green color.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveImageColor.Blue">
+            <summary>
+            Blue color.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveImageColor.Purple">
+            <summary>
+            Purple color.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveImageColor.Pink">
+            <summary>
+            Pink color.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveImageColor.Brown">
+            <summary>
+            Brown color.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveImageColor.Black">
+            <summary>
+            Black color.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveImageColor.Gray">
+            <summary>
+            Gray color.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveImageColor.Teal">
+            <summary>
+            Teal color.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveImageColor.White">
+            <summary>
+            White color.
+            </summary>
+        </member>
+        <member name="T:GScraper.Brave.BraveImageLayout">
+            <summary>
+            Specifies the image layouts in Brave search.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveImageLayout.All">
+            <summary>
+            All layouts
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveImageLayout.Square">
+            <summary>
+            Square layout.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveImageLayout.Tall">
+            <summary>
+            Tall layout.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveImageLayout.Wide">
+            <summary>
+            Wide layout.
+            </summary>
+        </member>
+        <member name="T:GScraper.Brave.BraveImageLicense">
+            <summary>
+            Specifies the image licenses in Brave search.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveImageLicense.All">
+            <summary>
+            All licenses.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveImageLicense.Public">
+            <summary>
+            Public Domain.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveImageLicense.Share">
+            <summary>
+            Free to Share and Use.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveImageLicense.ShareCommercially">
+            <summary>
+            Free to Share and Use Commercially.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveImageLicense.Modify">
+            <summary>
+            Free to Modify, Share and Use.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveImageLicense.ModifyCommercially">
+            <summary>
+            Free to Modify, Share and Use Commercially.
+            </summary>
+        </member>
+        <member name="T:GScraper.Brave.BraveImageResult">
+            <summary>
+            Represents an image result from Brave.
+            </summary>
+        </member>
+        <member name="P:GScraper.Brave.BraveImageResult.Url">
+            <inheritdoc/>
+        </member>
+        <member name="P:GScraper.Brave.BraveImageResult.Title">
+            <inheritdoc/>
+        </member>
+        <member name="P:GScraper.Brave.BraveImageResult.Width">
+            <inheritdoc/>
+        </member>
+        <member name="P:GScraper.Brave.BraveImageResult.Height">
+            <inheritdoc/>
+        </member>
+        <member name="P:GScraper.Brave.BraveImageResult.Color">
+            <summary>
+            Gets the background color of this result.
+            </summary>
+        </member>
+        <member name="P:GScraper.Brave.BraveImageResult.SourceUrl">
+            <summary>
+            Gets a URL pointing to the webpage hosting the image.
+            </summary>
+        </member>
+        <member name="P:GScraper.Brave.BraveImageResult.PageAge">
+            <summary>
+            Gets the page age.
+            </summary>
+        </member>
+        <member name="P:GScraper.Brave.BraveImageResult.Source">
+            <summary>
+            Gets the name or the root URL of the website this image comes from.
+            </summary>
+        </member>
+        <member name="P:GScraper.Brave.BraveImageResult.ThumbnailUrl">
+            <summary>
+            Gets a URL pointing to the thumbnail image.
+            </summary>
+        </member>
+        <member name="P:GScraper.Brave.BraveImageResult.ResizedUrl">
+            <summary>
+            Gets a URL pointing to the resized image.
+            </summary>
+        </member>
+        <member name="P:GScraper.Brave.BraveImageResult.Format">
+            <summary>
+            Gets the format of the image.
+            </summary>
+        </member>
+        <member name="M:GScraper.Brave.BraveImageResult.ToString">
+            <summary>
+            Returns the URL of this result.
+            </summary>
+            <returns>The URL of this result.</returns>
+        </member>
+        <member name="T:GScraper.Brave.BraveImageSize">
+            <summary>
+            Specifies the image sizes in Brave search.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveImageSize.All">
+            <summary>
+            Any sizes.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveImageSize.Small">
+            <summary>
+            Small sizes.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveImageSize.Medium">
+            <summary>
+            Medium sizes.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveImageSize.Large">
+            <summary>
+            Large sizes.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveImageSize.Wallpaper">
+            <summary>
+            Wallpaper sizes.
+            </summary>
+        </member>
+        <member name="T:GScraper.Brave.BraveImageType">
+            <summary>
+            Specifies the image types in Brave search.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveImageType.All">
+            <summary>
+            All types.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveImageType.Photo">
+            <summary>
+            Photograph.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveImageType.Clipart">
+            <summary>
+            Clip Art.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveImageType.AnimatedGifHttps">
+            <summary>
+            Animated GIF.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveImageType.Transparent">
+            <summary>
+            Transparent.
+            </summary>
+        </member>
+        <member name="T:GScraper.Brave.BraveScraper">
+            <summary>
+            Represents a Brave Search scraper.
+            </summary>
+        </member>
+        <member name="F:GScraper.Brave.BraveScraper.DefaultApiEndpoint">
+            <summary>
+            Returns the default API endpoint.
+            </summary>
+        </member>
+        <member name="M:GScraper.Brave.BraveScraper.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:GScraper.Brave.BraveScraper"/> class.
+            </summary>
+        </member>
+        <member name="M:GScraper.Brave.BraveScraper.#ctor(System.Net.Http.HttpClient)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GScraper.Brave.BraveScraper"/> class using the provided <see cref="T:System.Net.Http.HttpClient"/>.
+            </summary>
+        </member>
+        <member name="M:GScraper.Brave.BraveScraper.#ctor(System.Net.Http.HttpClient,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GScraper.Brave.BraveScraper"/> class using the provided <see cref="T:System.Net.Http.HttpClient"/> and API endpoint.
+            </summary>
+        </member>
+        <member name="M:GScraper.Brave.BraveScraper.GetImagesAsync(System.String,GScraper.SafeSearchLevel,System.String,GScraper.Brave.BraveImageSize,GScraper.Brave.BraveImageType,GScraper.Brave.BraveImageLayout,GScraper.Brave.BraveImageColor,GScraper.Brave.BraveImageLicense)">
+            <summary>
+            Gets images from Brave Search.
+            </summary>
+            <remarks>This method returns at most 150 image results.</remarks>
+            <param name="query">The search query.</param>
+            <param name="safeSearch">The safe search level.</param>
+            <param name="country">The country. <see cref="T:GScraper.Brave.BraveCountries"/> contains the countries that can be used here.</param>
+            <param name="size">The image size.</param>
+            <param name="type">The image type.</param>
+            <param name="layout">The image layout.</param>
+            <param name="color">The image color.</param>
+            <param name="license">The image license.</param>
+            <returns>A task representing the asynchronous operation. The result contains an <see cref="T:System.Collections.Generic.IEnumerable`1"/> of <see cref="T:GScraper.Brave.BraveImageResult"/>.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="query"/> is null or empty.</exception>
+            <exception cref="T:GScraper.GScraperException">An error occurred during the scraping process.</exception>
+        </member>
+        <member name="M:GScraper.Brave.BraveScraper.Dispose">
+            <inheritdoc />
+        </member>
+        <member name="M:GScraper.Brave.BraveScraper.Dispose(System.Boolean)">
+            <inheritdoc cref="M:GScraper.Brave.BraveScraper.Dispose"/>
+        </member>
+        <member name="T:GScraper.DuckDuckGo.DuckDuckGoImageColor">
+            <summary>
+            Specifies the image colors in Brave search.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoImageColor.All">
+            <summary>
+            All colors.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoImageColor.Color">
+            <summary>
+            Only colors.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoImageColor.Monochrome">
+            <summary>
+            Black and white.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoImageColor.Red">
+            <summary>
+            Red color.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoImageColor.Orange">
+            <summary>
+            Orange color.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoImageColor.Yellow">
+            <summary>
+            Yellow color.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoImageColor.Green">
+            <summary>
+            Green color.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoImageColor.Blue">
+            <summary>
+            Blue color.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoImageColor.Purple">
+            <summary>
+            Purple color.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoImageColor.Pink">
+            <summary>
+            Pink color.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoImageColor.Brown">
+            <summary>
+            Brown color.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoImageColor.Black">
+            <summary>
+            Black color.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoImageColor.Gray">
+            <summary>
+            Gray color.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoImageColor.Teal">
+            <summary>
+            Teal color.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoImageColor.White">
+            <summary>
+            White color.
+            </summary>
+        </member>
+        <member name="T:GScraper.DuckDuckGo.DuckDuckGoImageLayout">
+            <summary>
+            Specifies the image layouts in DuckDuckGo.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoImageLayout.All">
+            <summary>
+            All layouts
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoImageLayout.Square">
+            <summary>
+            Square layout.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoImageLayout.Tall">
+            <summary>
+            Tall layout.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoImageLayout.Wide">
+            <summary>
+            Wide layout.
+            </summary>
+        </member>
+        <member name="T:GScraper.DuckDuckGo.DuckDuckGoImageLicense">
+            <summary>
+            Specifies the image licenses in DuckDuckGo.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoImageLicense.All">
+            <summary>
+            All Licenses.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoImageLicense.Any">
+            <summary>
+            All Creative Commons.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoImageLicense.Public">
+            <summary>
+            Public Domain.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoImageLicense.Share">
+            <summary>
+            Free to Share and Use.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoImageLicense.ShareCommercially">
+            <summary>
+            Free to Share and Use Commercially.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoImageLicense.Modify">
+            <summary>
+            Free to Modify, Share and Use.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoImageLicense.ModifyCommercially">
+            <summary>
+            Free to Modify, Share and Use Commercially.
+            </summary>
+        </member>
+        <member name="T:GScraper.DuckDuckGo.DuckDuckGoImageResult">
+            <summary>
+            Represents an image result from DuckDuckGo.
+            </summary>
+        </member>
+        <member name="P:GScraper.DuckDuckGo.DuckDuckGoImageResult.Url">
+            <inheritdoc/>
+        </member>
+        <member name="P:GScraper.DuckDuckGo.DuckDuckGoImageResult.Title">
+            <inheritdoc/>
+        </member>
+        <member name="P:GScraper.DuckDuckGo.DuckDuckGoImageResult.Width">
+            <inheritdoc/>
+        </member>
+        <member name="P:GScraper.DuckDuckGo.DuckDuckGoImageResult.Height">
+            <inheritdoc/>
+        </member>
+        <member name="P:GScraper.DuckDuckGo.DuckDuckGoImageResult.SourceUrl">
+            <summary>
+            Gets a URL pointing to the webpage hosting the image.
+            </summary>
+        </member>
+        <member name="P:GScraper.DuckDuckGo.DuckDuckGoImageResult.ThumbnailUrl">
+            <summary>
+            Gets a URL pointing to the thumbnail image.
+            </summary>
+        </member>
+        <member name="P:GScraper.DuckDuckGo.DuckDuckGoImageResult.Source">
+            <summary>
+            Gets the search engine this result comes from.
+            </summary>
+        </member>
+        <member name="M:GScraper.DuckDuckGo.DuckDuckGoImageResult.ToString">
+            <summary>
+            Returns the URL of this result.
+            </summary>
+            <returns>The URL of this result.</returns>
+        </member>
+        <member name="T:GScraper.DuckDuckGo.DuckDuckGoImageSize">
+            <summary>
+            Specifies the image sizes in DuckDuckGo.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoImageSize.All">
+            <summary>
+            All sizes.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoImageSize.Small">
+            <summary>
+            Small sizes.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoImageSize.Medium">
+            <summary>
+            Medium sizes.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoImageSize.Large">
+            <summary>
+            Large sizes.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoImageSize.Wallpaper">
+            <summary>
+            Wallpaper sizes.
+            </summary>
+        </member>
+        <member name="T:GScraper.DuckDuckGo.DuckDuckGoImageTime">
+            <summary>
+            Specifies the possible times in DuckDuckGo.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoImageTime.Any">
+            <summary>
+            Any time.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoImageTime.Day">
+            <summary>
+            Past day.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoImageTime.Week">
+            <summary>
+            Past week.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoImageTime.Month">
+            <summary>
+            Past month.
+            </summary>
+        </member>
+        <member name="T:GScraper.DuckDuckGo.DuckDuckGoImageType">
+            <summary>
+            Specifies the image types in DuckDuckGo.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoImageType.All">
+            <summary>
+            All types.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoImageType.Photo">
+            <summary>
+            Photograph.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoImageType.Clipart">
+            <summary>
+            Clip Art.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoImageType.Gif">
+            <summary>
+            Animated GIF.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoImageType.Transparent">
+            <summary>
+            Transparent.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoImageType.Line">
+            <summary>
+            Line drawing.
+            </summary>
+        </member>
+        <member name="T:GScraper.DuckDuckGo.DuckDuckGoRegions">
+            <summary>
+            Contains the possible regions in DuckDuckGo.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.All">
+            <summary>
+            All regions.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.Argentina">
+            <summary>
+            Argentina.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.Australia">
+            <summary>
+            Australia.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.Austria">
+            <summary>
+            Austria.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.BelgiumFr">
+            <summary>
+            Belgium (fr).
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.BelgiumNl">
+            <summary>
+            Belgium (nl).
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.Brazil">
+            <summary>
+            Brazil.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.Bulgaria">
+            <summary>
+            Bulgaria.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.CanadaEn">
+            <summary>
+            Canada (en).
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.CanadaFr">
+            <summary>
+            Canada (fr).
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.Catalonia">
+            <summary>
+            Catalonia.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.Chile">
+            <summary>
+            Chile.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.China">
+            <summary>
+            China.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.Colombia">
+            <summary>
+            Colombia.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.Croatia">
+            <summary>
+            Croatia.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.CzechRepublic">
+            <summary>
+            Czech Republic.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.Denmark">
+            <summary>
+            Denmark.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.Estonia">
+            <summary>
+            Estonia.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.Finland">
+            <summary>
+            Finland.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.France">
+            <summary>
+            France.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.Germany">
+            <summary>
+            Germany.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.Greece">
+            <summary>
+            Greece.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.HongKong">
+            <summary>
+            Hong Kong.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.Hungary">
+            <summary>
+            Hungary.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.IndiaEn">
+            <summary>
+            India (en).
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.IndonesiaEn">
+            <summary>
+            Indonesia (en).
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.Ireland">
+            <summary>
+            Ireland.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.IsraelEn">
+            <summary>
+            Israel (en).
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.Italy">
+            <summary>
+            Italy.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.Japan">
+            <summary>
+            Japan.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.Korea">
+            <summary>
+            Korea.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.Latvia">
+            <summary>
+            Latvia.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.Lithuania">
+            <summary>
+            Lithuania.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.MalaysiaEn">
+            <summary>
+            Malaysia (en).
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.Mexico">
+            <summary>
+            Mexico.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.Netherlands">
+            <summary>
+            Netherlands.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.NewZealand">
+            <summary>
+            New Zealand.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.Norway">
+            <summary>
+            Norway.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.PakistanEn">
+            <summary>
+            Pakistan (en).
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.Peru">
+            <summary>
+            Peru.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.PhilippinesEn">
+            <summary>
+            Philippines (en).
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.Poland">
+            <summary>
+            Poland.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.Portugal">
+            <summary>
+            Portugal.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.Romania">
+            <summary>
+            Romania.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.Russia">
+            <summary>
+            Russia.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.SaudiArabia">
+            <summary>
+            Saudi Arabia.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.Singapore">
+            <summary>
+            Singapore.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.Slovakia">
+            <summary>
+            Slovakia.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.Slovenia">
+            <summary>
+            Slovenia.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.SouthAfrica">
+            <summary>
+            South Africa.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.SpainCa">
+            <summary>
+            Spain (ca).
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.SpainEs">
+            <summary>
+            Spain (es).
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.Sweden">
+            <summary>
+            Sweden.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.SwitzerlandDe">
+            <summary>
+            Switzerland (de).
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.SwitzerlandFr">
+            <summary>
+            Switzerland (fr).
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.Taiwan">
+            <summary>
+            Taiwan.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.ThailandEn">
+            <summary>
+            Thailand (en).
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.Turkey">
+            <summary>
+            Turkey.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.UsEnglish">
+            <summary>
+            US (English).
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.UsSpanish">
+            <summary>
+            US (Spanish).
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.Ukraine">
+            <summary>
+            Ukraine.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.UnitedKingdom">
+            <summary>
+            United Kingdom.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoRegions.VietnamEn">
+            <summary>
+            Vietnam (en).
+            </summary>
+        </member>
+        <member name="T:GScraper.DuckDuckGo.DuckDuckGoScraper">
+            <summary>
+            Represents a DuckDuckGo scraper.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoScraper.DefaultApiEndpoint">
+            <summary>
+            Returns the default API endpoint.
+            </summary>
+        </member>
+        <member name="F:GScraper.DuckDuckGo.DuckDuckGoScraper.MaxQueryLength">
+            <summary>
+            Returns the maximum query length.
+            </summary>
+        </member>
+        <member name="M:GScraper.DuckDuckGo.DuckDuckGoScraper.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:GScraper.DuckDuckGo.DuckDuckGoScraper"/> class.
+            </summary>
+        </member>
+        <member name="M:GScraper.DuckDuckGo.DuckDuckGoScraper.#ctor(System.Net.Http.HttpClient)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GScraper.DuckDuckGo.DuckDuckGoScraper"/> class using the provided <see cref="T:System.Net.Http.HttpClient"/>.
+            </summary>
+        </member>
+        <member name="M:GScraper.DuckDuckGo.DuckDuckGoScraper.#ctor(System.Net.Http.HttpClient,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GScraper.DuckDuckGo.DuckDuckGoScraper"/> class using the provided <see cref="T:System.Net.Http.HttpClient"/> and API endpoint.
+            </summary>
+        </member>
+        <member name="M:GScraper.DuckDuckGo.DuckDuckGoScraper.GetImagesAsync(System.String,GScraper.SafeSearchLevel,GScraper.DuckDuckGo.DuckDuckGoImageTime,GScraper.DuckDuckGo.DuckDuckGoImageSize,GScraper.DuckDuckGo.DuckDuckGoImageColor,GScraper.DuckDuckGo.DuckDuckGoImageType,GScraper.DuckDuckGo.DuckDuckGoImageLayout,GScraper.DuckDuckGo.DuckDuckGoImageLicense,System.String)">
+            <summary>
+            Gets images from DuckDuckGo.
+            </summary>
+            <remarks>This method returns at most 100 image results.</remarks>
+            <param name="query">The search query.</param>
+            <param name="safeSearch">The safe search level.</param>
+            <param name="time">The image time.</param>
+            <param name="size">The image size.</param>
+            <param name="color">The image color.</param>
+            <param name="type">The image type.</param>
+            <param name="layout">The image layout.</param>
+            <param name="license">The image license.</param>
+            <param name="region">The region. <see cref="T:GScraper.DuckDuckGo.DuckDuckGoRegions"/> contains the regions that can be used here.</param>
+            <returns>A task representing the asynchronous operation. The result contains an <see cref="T:System.Collections.Generic.IEnumerable`1"/> of <see cref="T:GScraper.DuckDuckGo.DuckDuckGoImageResult"/>.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="query"/> is null or empty.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="query"/> is larger than <see cref="F:GScraper.DuckDuckGo.DuckDuckGoScraper.MaxQueryLength"/>.</exception>
+            <exception cref="T:GScraper.GScraperException">An error occurred during the scraping process.</exception>
+        </member>
+        <member name="M:GScraper.DuckDuckGo.DuckDuckGoScraper.Dispose">
+            <inheritdoc />
+        </member>
+        <member name="M:GScraper.DuckDuckGo.DuckDuckGoScraper.Dispose(System.Boolean)">
+            <inheritdoc cref="M:GScraper.DuckDuckGo.DuckDuckGoScraper.Dispose"/>
+        </member>
+        <member name="M:GScraper.Google.GoogleColorConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc />
+        </member>
+        <member name="M:GScraper.Google.GoogleColorConverter.Write(System.Text.Json.Utf8JsonWriter,System.Nullable{System.Drawing.Color},System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc />
+        </member>
+        <member name="T:GScraper.Google.GoogleImageColors">
+            <summary>
+            Contains the possible colors in Google Images.
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleImageColors.BlackAndWhite">
+            <summary>
+            Black and white.
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleImageColors.Transparent">
+            <summary>
+            Transparent.
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleImageColors.Red">
+            <summary>
+            Red.
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleImageColors.Orange">
+            <summary>
+            Orange.
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleImageColors.Yellow">
+            <summary>
+            Yellow.
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleImageColors.Green">
+            <summary>
+            Green.
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleImageColors.Teal">
+            <summary>
+            Teal.
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleImageColors.Blue">
+            <summary>
+            Blue.
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleImageColors.Purple">
+            <summary>
+            Purple.
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleImageColors.Pink">
+            <summary>
+            Pink.
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleImageColors.White">
+            <summary>
+            White.
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleImageColors.Gray">
+            <summary>
+            Gray.
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleImageColors.Black">
+            <summary>
+            Black.
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleImageColors.Brown">
+            <summary>
+            Brown.
+            </summary>
+        </member>
+        <member name="T:GScraper.Google.GoogleImageLicenses">
+            <summary>
+            Contains the possible licenses (usage rights) in Google Images.
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleImageLicenses.CreativeCommons">
+            <summary>
+            Returns the code for Creative Commons licenses.
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleImageLicenses.Commercial">
+            <summary>
+            Returns the code for Commercial and other licenses.
+            </summary>
+        </member>
+        <member name="T:GScraper.Google.GoogleImageSize">
+            <summary>
+            Specifies the image sizes in Google Images.
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleImageSize.Any">
+            <summary>
+            Any size.
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleImageSize.Large">
+            <summary>
+            Large size.
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleImageSize.Medium">
+            <summary>
+            Medium size.
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleImageSize.Icon">
+            <summary>
+            Icon size.
+            </summary>
+        </member>
+        <member name="T:GScraper.Google.GoogleImageTime">
+            <summary>
+            Specifies the possible times in Google Images.
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleImageTime.Any">
+            <summary>
+            Any time.
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleImageTime.Day">
+            <summary>
+            Past 24 hours.
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleImageTime.Week">
+            <summary>
+            Past week.
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleImageTime.Month">
+            <summary>
+            Past month.
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleImageTime.Year">
+            <summary>
+            Past year.
+            </summary>
+        </member>
+        <member name="T:GScraper.Google.GoogleImageType">
+            <summary>
+            Specifies the image types in Google Images.
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleImageType.Any">
+            <summary>
+            Any image type.
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleImageType.Face">
+            <summary>
+            Face.
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleImageType.Photo">
+            <summary>
+            Photograph.
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleImageType.ClipArt">
+            <summary>
+            Clip Art.
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleImageType.LineArt">
+            <summary>
+            Line Art.
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleImageType.Animated">
+            <summary>
+            GIF.
+            </summary>
+        </member>
+        <member name="T:GScraper.Google.GoogleLanguages">
+            <summary>
+            Contains the languages used in Google Search/Images.
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleLanguages.Arabic">
+            <summary>
+            Returns the language code for: Arabic.
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleLanguages.ChineseSimplified">
+            <summary>
+            Returns the language code for: Chinese (Simplified).
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleLanguages.ChineseTraditional">
+            <summary>
+            Returns the language code for: Chinese (Traditional).
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleLanguages.Czech">
+            <summary>
+            Returns the language code for: Czech.
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleLanguages.Danish">
+            <summary>
+            Returns the language code for: Danish.
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleLanguages.Dutch">
+            <summary>
+            Returns the language code for: Dutch.
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleLanguages.English">
+            <summary>
+            Returns the language code for: English.
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleLanguages.Estonian">
+            <summary>
+            Returns the language code for: Estonian.
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleLanguages.Finnish">
+            <summary>
+            Returns the language code for: Finnish.
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleLanguages.French">
+            <summary>
+            Returns the language code for: French.
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleLanguages.German">
+            <summary>
+            Returns the language code for: German.
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleLanguages.Greek">
+            <summary>
+            Returns the language code for: Greek.
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleLanguages.Hebrew">
+            <summary>
+            Returns the language code for: Hebrew.
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleLanguages.Hungarian">
+            <summary>
+            Returns the language code for: Hungarian.
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleLanguages.Icelandic">
+            <summary>
+            Returns the language code for: Icelandic.
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleLanguages.Italian">
+            <summary>
+            Returns the language code for: Italian.
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleLanguages.Japanese">
+            <summary>
+            Returns the language code for: Japanese.
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleLanguages.Korean">
+            <summary>
+            Returns the language code for: Korean.
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleLanguages.Latvian">
+            <summary>
+            Returns the language code for: Latvian.
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleLanguages.Lithuanian">
+            <summary>
+            Returns the language code for: Lithuanian.
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleLanguages.Norwegian">
+            <summary>
+            Returns the language code for: Norwegian.
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleLanguages.Portuguese">
+            <summary>
+            Returns the language code for: Portuguese.
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleLanguages.Polish">
+            <summary>
+            Returns the language code for: Polish.
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleLanguages.Romanian">
+            <summary>
+            Returns the language code for: Romanian.
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleLanguages.Russian">
+            <summary>
+            Returns the language code for: Russian.
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleLanguages.Spanish">
+            <summary>
+            Returns the language code for: Spanish.
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleLanguages.Swedish">
+            <summary>
+            Returns the language code for: Swedish.
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleLanguages.Turkish">
+            <summary>
+            Returns the language code for: Turkish.
+            </summary>
+        </member>
+        <member name="T:GScraper.Google.GoogleScraper">
+            <summary>
+            Represents a Google Search scraper.
+            </summary>
+        </member>
+        <member name="F:GScraper.Google.GoogleScraper.DefaultApiEndpoint">
+            <summary>
+            Returns the default API endpoint.
+            </summary>
+        </member>
+        <member name="M:GScraper.Google.GoogleScraper.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:GScraper.Google.GoogleScraper"/> class.
+            </summary>
+        </member>
+        <member name="M:GScraper.Google.GoogleScraper.#ctor(System.Net.Http.HttpClient)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GScraper.Google.GoogleScraper"/> class using the provided <see cref="T:System.Net.Http.HttpClient"/>.
+            </summary>
+        </member>
+        <member name="M:GScraper.Google.GoogleScraper.#ctor(System.Net.Http.HttpClient,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GScraper.Google.GoogleScraper"/> class using the provided <see cref="T:System.Net.Http.HttpClient"/> and API endpoint.
+            </summary>
+        </member>
+        <member name="M:GScraper.Google.GoogleScraper.GetImagesAsync(System.String,GScraper.SafeSearchLevel,GScraper.Google.GoogleImageSize,System.String,GScraper.Google.GoogleImageType,GScraper.Google.GoogleImageTime,System.String,System.String)">
+            <summary>
+            Gets images from Google Images.
+            </summary>
+            <remarks>This method returns at most 100 image results.</remarks>
+            <param name="query">The search query.</param>
+            <param name="safeSearch">The safe search level.</param>
+            <param name="size">The image size.</param>
+            <param name="color">The image color. <see cref="T:GScraper.Google.GoogleImageColors"/> contains the colors that can be used here.</param>
+            <param name="type">The image type.</param>
+            <param name="time">The image time.</param>
+            <param name="license">The image license. <see cref="T:GScraper.Google.GoogleImageLicenses"/> contains the licenses that can be used here.</param>
+            <param name="language">The language code to use. <see cref="T:GScraper.Google.GoogleLanguages"/> contains the language codes that can be used here.</param>
+            <returns>A task representing the asynchronous operation. The result contains an <see cref="T:System.Collections.Generic.IEnumerable`1"/> of <see cref="T:GScraper.GoogleImageResult"/>.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="query"/> is null or empty.</exception>
+            <exception cref="T:GScraper.GScraperException">An error occurred during the scraping process.</exception>
+        </member>
+        <member name="M:GScraper.Google.GoogleScraper.Dispose">
+            <inheritdoc />
+        </member>
+        <member name="M:GScraper.Google.GoogleScraper.Dispose(System.Boolean)">
+            <inheritdoc cref="M:GScraper.Google.GoogleScraper.Dispose"/>
+        </member>
+        <member name="T:GScraper.GoogleImageResult">
+            <summary>
+            Represents an image result from Google Images.
+            </summary>
+        </member>
+        <member name="P:GScraper.GoogleImageResult.Url">
+            <inheritdoc/>
+        </member>
+        <member name="P:GScraper.GoogleImageResult.Title">
+            <inheritdoc/>
+        </member>
+        <member name="P:GScraper.GoogleImageResult.Width">
+            <inheritdoc/>
+        </member>
+        <member name="P:GScraper.GoogleImageResult.Height">
+            <inheritdoc/>
+        </member>
+        <member name="P:GScraper.GoogleImageResult.Color">
+            <summary>
+            Gets the background color of this result.
+            </summary>
+        </member>
+        <member name="P:GScraper.GoogleImageResult.DisplayUrl">
+            <summary>
+            Gets an abridged version of <see cref="P:GScraper.GoogleImageResult.SourceUrl"/>, e.g. www.example.com.
+            </summary>
+        </member>
+        <member name="P:GScraper.GoogleImageResult.SourceUrl">
+            <summary>
+            Gets a URL pointing to the webpage hosting the image.
+            </summary>
+        </member>
+        <member name="P:GScraper.GoogleImageResult.ThumbnailUrl">
+            <summary>
+            Gets a URL pointing to the thumbnail image.
+            </summary>
+        </member>
+        <member name="M:GScraper.GoogleImageResult.ToString">
+            <summary>
+            Returns the URL of this result.
+            </summary>
+            <returns>The URL of this result.</returns>
+        </member>
+        <member name="T:GScraper.GScraperException">
+            <summary>
+            The exception that is thrown during the scraping process.
+            </summary>
+        </member>
+        <member name="P:GScraper.GScraperException.Engine">
+            <summary>
+            Gets the search engine that caused this exception.
+            </summary>
+        </member>
+        <member name="M:GScraper.GScraperException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:GScraper.GScraperException"/> class.
+            </summary>
+        </member>
+        <member name="M:GScraper.GScraperException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GScraper.GScraperException"/> class with a specified error message.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:GScraper.GScraperException.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GScraper.GScraperException"/> class with a specified error message.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+            <param name="engine">The search engine that caused this exception.</param>
+        </member>
+        <member name="M:GScraper.GScraperException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GScraper.GScraperException"/> class with a specified error message and a reference to the inner exception that is the cause of this exception.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+            <param name="innerException">The exception that is the cause of the current exception, or a null reference (Nothing in Visual Basic) if no inner exception is specified.</param>
+        </member>
+        <member name="M:GScraper.GScraperException.#ctor(System.String,System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GScraper.GScraperException"/> class with a specified error message and a reference to the inner exception that is the cause of this exception.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+            <param name="engine">The search engine that caused this exception.</param>
+            <param name="innerException">The exception that is the cause of the current exception, or a null reference (Nothing in Visual Basic) if no inner exception is specified.</param>
+        </member>
+        <member name="T:GScraper.IImageResult">
+            <summary>
+            Represents an image result.
+            </summary>
+        </member>
+        <member name="P:GScraper.IImageResult.Url">
+            <summary>
+            Gets a URL pointing to the image.
+            </summary>
+        </member>
+        <member name="P:GScraper.IImageResult.Title">
+            <summary>
+            Gets the title of the image result.
+            </summary>
+        </member>
+        <member name="P:GScraper.IImageResult.Width">
+            <summary>
+            Gets the width of the image, in pixels.
+            </summary>
+        </member>
+        <member name="P:GScraper.IImageResult.Height">
+            <summary>
+            Gets the height of the image, in pixels.
+            </summary>
+        </member>
+        <member name="T:GScraper.SafeSearchLevel">
+            <summary>
+            Specifies the Safe Search levels.
+            </summary>
+        </member>
+        <member name="F:GScraper.SafeSearchLevel.Off">
+            <summary>
+            Safe Search is off.
+            </summary>
+        </member>
+        <member name="F:GScraper.SafeSearchLevel.Moderate">
+            <summary>
+            Don't show explicit results.
+            </summary>
+        </member>
+        <member name="F:GScraper.SafeSearchLevel.Strict">
+            <summary>
+            Strict safe search.
+            </summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.MemberNotNullAttribute">
+            <summary>
+            Specifies that the method or property will ensure that the listed field and property members have not-null values.
+            </summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.MemberNotNullAttribute.#ctor(System.String)">
+            <summary>
+            Initializes the attribute with a field or property member.
+            </summary>
+            <param name="member">The field or property member that is promised to be not-null.</param>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.MemberNotNullAttribute.#ctor(System.String[])">
+            <summary>
+            Initializes the attribute with the list of field and property members.
+            </summary>
+            <param name="members">The list of field and property members that are promised to be not-null.</param>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.MemberNotNullAttribute.Members">
+            <summary>
+            Gets field or property member names.
+            </summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute">
+            <summary>
+            Specifies that the method or property will ensure that the listed field and property
+            members have not-null values when returning with the specified return value condition.
+            </summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.#ctor(System.Boolean,System.String)">
+            <summary>
+            Initializes the attribute with the specified return value condition and a field or property member.
+            </summary>
+            <param name="returnValue">The return value condition. If the method returns this value, the associated parameter will not be null.</param>
+            <param name="member">The field or property member that is promised to be not-null.</param>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.#ctor(System.Boolean,System.String[])">
+            <summary>
+            Initializes the attribute with the specified return value condition and list of field and property members.
+            </summary>
+            <param name="returnValue">The return value condition. If the method returns this value, the associated parameter will not be null.</param>
+            <param name="members">The list of field and property members that are promised to be not-null.</param>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.ReturnValue">
+            <summary>
+            Gets the return value condition.
+            </summary>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.Members">
+            <summary>
+            Gets field or property member names.
+            </summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.SetsRequiredMembersAttribute">
+            <summary>
+            Specifies that this constructor sets all required members for the current type,
+            and callers do not need to set any required members themselves.
+            </summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.StringSyntaxAttribute">
+            <summary>
+            Specifies the syntax used in a string.
+            </summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.StringSyntaxAttribute.#ctor(System.String)">
+            <summary>
+            Initializes the <see cref="T:System.Diagnostics.CodeAnalysis.StringSyntaxAttribute"/> with the identifier of the syntax used.
+            </summary>
+            <param name="syntax">The syntax identifier.</param>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.StringSyntaxAttribute.#ctor(System.String,System.Object[])">
+            <summary>Initializes the <see cref="T:System.Diagnostics.CodeAnalysis.StringSyntaxAttribute"/> with the identifier of the syntax used.</summary>
+            <param name="syntax">The syntax identifier.</param>
+            <param name="arguments">Optional arguments associated with the specific syntax employed.</param>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.StringSyntaxAttribute.Syntax">
+            <summary>Gets the identifier of the syntax used.</summary>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.StringSyntaxAttribute.Arguments">
+            <summary>Optional arguments associated with the specific syntax employed.</summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.StringSyntaxAttribute.CompositeFormat">
+            <summary>The syntax identifier for strings containing composite formats for string formatting.</summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.StringSyntaxAttribute.DateOnlyFormat">
+            <summary>The syntax identifier for strings containing date format specifiers.</summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.StringSyntaxAttribute.DateTimeFormat">
+            <summary>The syntax identifier for strings containing date and time format specifiers.</summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.StringSyntaxAttribute.EnumFormat">
+            <summary>The syntax identifier for strings containing <see cref="T:System.Enum"/> format specifiers.</summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.StringSyntaxAttribute.GuidFormat">
+            <summary>The syntax identifier for strings containing <see cref="T:System.Guid"/> format specifiers.</summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.StringSyntaxAttribute.Json">
+            <summary>The syntax identifier for strings containing JavaScript Object Notation (JSON).</summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.StringSyntaxAttribute.NumericFormat">
+            <summary>The syntax identifier for strings containing numeric format specifiers.</summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.StringSyntaxAttribute.Regex">
+            <summary>The syntax identifier for strings containing regular expressions.</summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.StringSyntaxAttribute.TimeOnlyFormat">
+            <summary>The syntax identifier for strings containing time format specifiers.</summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.StringSyntaxAttribute.TimeSpanFormat">
+            <summary>The syntax identifier for strings containing <see cref="T:System.TimeSpan"/> format specifiers.</summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.StringSyntaxAttribute.Uri">
+            <summary>The syntax identifier for strings containing URIs.</summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.StringSyntaxAttribute.Xml">
+            <summary>The syntax identifier for strings containing XML.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.UnscopedRefAttribute">
+            <summary>
+            Used to indicate a byref escapes and is not scoped.
+            </summary>
+            <remarks>
+            <para>
+            There are several cases where the C# compiler treats a <see langword="ref"/> as implicitly
+            <see langword="scoped"/> - where the compiler does not allow the <see langword="ref"/> to escape the method.
+            </para>
+            <para>
+            For example:
+            <list type="number">
+                <item><see langword="this"/> for <see langword="struct"/> instance methods.</item>
+                <item><see langword="ref"/> parameters that refer to <see langword="ref"/> <see langword="struct"/> types.</item>
+                <item><see langword="out"/> parameters.</item>
+            </list>
+            </para>
+            <para>
+            This attribute is used in those instances where the <see langword="ref"/> should be allowed to escape.
+            </para>
+            <para>
+            Applying this attribute, in any form, has impact on consumers of the applicable API. It is necessary for
+            API authors to understand the lifetime implications of applying this attribute and how it may impact their users.
+            </para>
+            </remarks>
+        </member>
+        <member name="T:System.Runtime.CompilerServices.CallerArgumentExpressionAttribute">
+            <summary>
+            An attribute that allows parameters to receive the expression of other parameters.
+            </summary>
+        </member>
+        <member name="M:System.Runtime.CompilerServices.CallerArgumentExpressionAttribute.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Runtime.CompilerServices.CallerArgumentExpressionAttribute"/> class.
+            </summary>
+            <param name="parameterName">The condition parameter value.</param>
+        </member>
+        <member name="P:System.Runtime.CompilerServices.CallerArgumentExpressionAttribute.ParameterName">
+            <summary>
+            Gets the parameter name the expression is retrieved from.
+            </summary>
+        </member>
+        <member name="T:System.Runtime.CompilerServices.CompilerFeatureRequiredAttribute">
+            <summary>
+            Indicates that compiler support for a particular feature is required for the location where this attribute is applied.
+            </summary>
+        </member>
+        <member name="M:System.Runtime.CompilerServices.CompilerFeatureRequiredAttribute.#ctor(System.String)">
+            <summary>
+            Creates a new instance of the <see cref="T:System.Runtime.CompilerServices.CompilerFeatureRequiredAttribute"/> type.
+            </summary>
+            <param name="featureName">The name of the feature to indicate.</param>
+        </member>
+        <member name="P:System.Runtime.CompilerServices.CompilerFeatureRequiredAttribute.FeatureName">
+            <summary>
+            The name of the compiler feature.
+            </summary>
+        </member>
+        <member name="P:System.Runtime.CompilerServices.CompilerFeatureRequiredAttribute.IsOptional">
+            <summary>
+            If true, the compiler can choose to allow access to the location where this attribute is applied if it does not understand <see cref="P:System.Runtime.CompilerServices.CompilerFeatureRequiredAttribute.FeatureName"/>.
+            </summary>
+        </member>
+        <member name="F:System.Runtime.CompilerServices.CompilerFeatureRequiredAttribute.RefStructs">
+            <summary>
+            The <see cref="P:System.Runtime.CompilerServices.CompilerFeatureRequiredAttribute.FeatureName"/> used for the ref structs C# feature.
+            </summary>
+        </member>
+        <member name="F:System.Runtime.CompilerServices.CompilerFeatureRequiredAttribute.RequiredMembers">
+            <summary>
+            The <see cref="P:System.Runtime.CompilerServices.CompilerFeatureRequiredAttribute.FeatureName"/> used for the required members C# feature.
+            </summary>
+        </member>
+        <member name="T:System.Runtime.CompilerServices.InterpolatedStringHandlerArgumentAttribute">
+            <summary>
+            Indicates which arguments to a method involving an interpolated string handler should be passed to that handler.
+            </summary>
+        </member>
+        <member name="M:System.Runtime.CompilerServices.InterpolatedStringHandlerArgumentAttribute.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Runtime.CompilerServices.InterpolatedStringHandlerArgumentAttribute"/> class.
+            </summary>
+            <param name="argument">The name of the argument that should be passed to the handler.</param>
+            <remarks><see langword="null"/> may be used as the name of the receiver in an instance method.</remarks>
+        </member>
+        <member name="M:System.Runtime.CompilerServices.InterpolatedStringHandlerArgumentAttribute.#ctor(System.String[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Runtime.CompilerServices.InterpolatedStringHandlerArgumentAttribute"/> class.
+            </summary>
+            <param name="arguments">The names of the arguments that should be passed to the handler.</param>
+            <remarks><see langword="null"/> may be used as the name of the receiver in an instance method.</remarks>
+        </member>
+        <member name="P:System.Runtime.CompilerServices.InterpolatedStringHandlerArgumentAttribute.Arguments">
+            <summary>
+            Gets the names of the arguments that should be passed to the handler.
+            </summary>
+            <remarks><see langword="null"/> may be used as the name of the receiver in an instance method.</remarks>
+        </member>
+        <member name="T:System.Runtime.CompilerServices.InterpolatedStringHandlerAttribute">
+            <summary>
+            Indicates the attributed type is to be used as an interpolated string handler.
+            </summary>
+        </member>
+        <member name="T:System.Runtime.CompilerServices.IsExternalInit">
+            <summary>
+            Reserved to be used by the compiler for tracking metadata.
+            This class should not be used by developers in source code.
+            </summary>
+        </member>
+        <member name="T:System.Runtime.CompilerServices.ModuleInitializerAttribute">
+             <summary>
+             Used to indicate to the compiler that a method should be called
+             in its containing module's initializer.
+             </summary>
+             <remarks>
+             When one or more valid methods
+             with this attribute are found in a compilation, the compiler will
+             emit a module initializer which calls each of the attributed methods.
+            
+             Certain requirements are imposed on any method targeted with this attribute:
+             - The method must be `static`.
+             - The method must be an ordinary member method, as opposed to a property accessor, constructor, local function, etc.
+             - The method must be parameterless.
+             - The method must return `void`.
+             - The method must not be generic or be contained in a generic type.
+             - The method's effective accessibility must be `internal` or `public`.
+            
+             The specification for module initializers in the .NET runtime can be found here:
+             https://github.com/dotnet/runtime/blob/main/docs/design/specs/Ecma-335-Augments.md#module-initializer
+             </remarks>
+        </member>
+        <member name="T:System.Runtime.CompilerServices.RequiredMemberAttribute">
+            <summary>
+            Specifies that a type has required members or that a member is required.
+            </summary>
+        </member>
+        <member name="T:System.Runtime.CompilerServices.SkipLocalsInitAttribute">
+            <summary>
+            Used to indicate to the compiler that the <c>.locals init</c> flag should not be set in method headers.
+            </summary>
+        </member>
+        <member name="M:System.Runtime.Versioning.RequiresPreviewFeaturesAttribute.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Runtime.Versioning.RequiresPreviewFeaturesAttribute"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Runtime.Versioning.RequiresPreviewFeaturesAttribute.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Runtime.Versioning.RequiresPreviewFeaturesAttribute"/> class with the specified message.
+            </summary>
+            <param name="message">An optional message associated with this attribute instance.</param>
+        </member>
+        <member name="P:System.Runtime.Versioning.RequiresPreviewFeaturesAttribute.Message">
+            <summary>
+            Returns the optional message associated with this attribute instance.
+            </summary>
+        </member>
+        <member name="P:System.Runtime.Versioning.RequiresPreviewFeaturesAttribute.Url">
+            <summary>
+            Returns the optional URL associated with this attribute instance.
+            </summary>
+        </member>
+    </members>
+</doc>

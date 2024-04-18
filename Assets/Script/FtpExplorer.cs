@@ -1,11 +1,14 @@
 using FluentFTP;
 using FluentFTP.Helpers;
+using GScraper;
+using GScraper.Google;
 using HtmlAgilityPack;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
+using System.Linq;
 using System.Net.Http;
 using System.Security.Policy;
 using System.Threading;
@@ -205,6 +208,30 @@ public class FtpExplorer : MonoBehaviour
         directoryDisplay.text = $"Downloaded {filename} to {localPath}";
 
         ExtractZipFile(filePath);
+
+        //using var scraper = new GoogleScraper();
+
+        //IEnumerable<IImageResult> images;
+        //try
+        //{
+        //    images = await scraper.GetImagesAsync($"cdromance {filename}");
+
+        //    // Open the first image in the browser
+        //    foreach (var image in images)
+        //    {
+        //        Debug.Log($"Image: {image.Url}");
+        //    }
+
+        //    // Download the first image
+        //    var firstImage = images.FirstOrDefault();
+        //    Application.OpenURL(firstImage.Url);
+        //}
+        //catch (Exception ex)
+        //{
+        //    Debug.Log($"Error: {ex}");
+        //}
+
+
     }
 
     async void ExtractZipFile(string filePath)
