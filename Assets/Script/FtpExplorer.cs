@@ -29,6 +29,7 @@ public class FtpExplorer : MonoBehaviour
 
     public FolderDisplayer folderDisplayer;
     public FolderExplorer folderExplorer;
+    public DownloadPanel downloadPanel;
 
     public TextMeshProUGUI directoryDisplay;
 
@@ -249,6 +250,9 @@ public class FtpExplorer : MonoBehaviour
         // Define a Stopwatch to measure time
         System.Diagnostics.Stopwatch stopwatch = new System.Diagnostics.Stopwatch();
 
+        downloadPanel.ShowDownloadPanel();
+        downloadPanel.UpdateGameIllustration(filename);
+
         StartCoroutine(DownloadFile());
         StartCoroutine(ShowDownloadProgress());
 
@@ -258,13 +262,17 @@ public class FtpExplorer : MonoBehaviour
             uwr.downloadHandler = new DownloadHandlerFile(localFilePath);
             yield return uwr.SendWebRequest();
             if (uwr.result != UnityWebRequest.Result.Success)
+            {
                 Debug.LogError(uwr.error);
+                directoryDisplay.text = $"Error downloading {filename}: {uwr.error}";
+            }
             else
             {
                 stopwatch.Stop(); // Stop the stopwatch when download completes
                 directoryDisplay.text = $"Downloaded {filename} to {localPath}";
                 ExtractZipFile(localFilePath);
             }
+
         }
 
         IEnumerator ShowDownloadProgress()
@@ -275,6 +283,8 @@ public class FtpExplorer : MonoBehaviour
                 float speed = uwr.downloadedBytes / (float)stopwatch.Elapsed.TotalSeconds;
 
                 directoryDisplay.text = $"{filename} ({size}) {uwr.downloadProgress * 100:F2}% | {FormatFileSize(speed)}/s";
+
+                downloadPanel.UpdateDownloadProgress(uwr.downloadProgress, speed, size, uwr.downloadedBytes);
                 yield return null;
             }
         }
@@ -307,6 +317,10 @@ public class FtpExplorer : MonoBehaviour
         {
             directoryDisplay.text = $"Error extracting {filePath}: {ex.Message}";
         }
+        finally
+        {
+            downloadPanel.HideDownloadPanel();
+        }
 
         async Task ExtractZipFileAsync(string filePath)
         {
@@ -316,11 +330,13 @@ public class FtpExplorer : MonoBehaviour
             string extractPath = System.IO.Path.GetDirectoryName(filePath);
 
             directoryDisplay.text = $"Extracting {filePath} to {extractPath}...";
+            downloadPanel.SetDownloadStatus($"Extracting {filePath} to {extractPath}...");
 
             // Extract the zip file
             await Task.Run(() => ZipFile.ExtractToDirectory(filePath, extractPath));
 
             directoryDisplay.text = $"Extracted {filePath} to {localPath}. Download complete";
+            downloadPanel.SetDownloadStatus($"Extracted {filePath} to {localPath}. Download complete");
         }
     }
 
