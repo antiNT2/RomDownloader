@@ -14,8 +14,10 @@ using System.Security.Policy;
 using System.Threading;
 using System.Threading.Tasks;
 using TMPro;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Networking;
 
 public class FtpExplorer : MonoBehaviour
 {
@@ -30,8 +32,7 @@ public class FtpExplorer : MonoBehaviour
 
     public TextMeshProUGUI directoryDisplay;
 
-    AsyncFtpClient client;
-
+    CancellationTokenSource TokenSource { get; set; }
 
     bool isConnected = true;
 
@@ -167,7 +168,7 @@ public class FtpExplorer : MonoBehaviour
                     }
                     else
                     {
-                        FolderDisplayer.ElementButton element = new FolderDisplayer.ElementButton(fileName, downloadLink, () => { DownloadFile(downloadLink, fileName, size); }, FolderDisplayer.ElementButton.ElementType.File, size);
+                        FolderDisplayer.ElementButton element = new FolderDisplayer.ElementButton(fileName, downloadLink, () => { DownloadFileWithProgress(downloadLink, fileName, size); }, FolderDisplayer.ElementButton.ElementType.File, size);
                         elements.Add(element);
                     }
 
@@ -233,6 +234,65 @@ public class FtpExplorer : MonoBehaviour
 
 
     }
+    async void DownloadFileWithProgress(string remotePath, string filename, string size)
+    {
+
+        directoryDisplay.text = $"Downloading {filename} ({size})...";
+
+        string localPath = folderExplorer.currentFolder;
+
+        // Save the file to the local path
+        string localFilePath = Path.Combine(localPath, filename);
+
+        var uwr = new UnityWebRequest(remotePath, UnityWebRequest.kHttpVerbGET);
+
+        // Define a Stopwatch to measure time
+        System.Diagnostics.Stopwatch stopwatch = new System.Diagnostics.Stopwatch();
+
+        StartCoroutine(DownloadFile());
+        StartCoroutine(ShowDownloadProgress());
+
+        IEnumerator DownloadFile()
+        {
+            stopwatch.Start(); // Start the stopwatch when download begins
+            uwr.downloadHandler = new DownloadHandlerFile(localFilePath);
+            yield return uwr.SendWebRequest();
+            if (uwr.result != UnityWebRequest.Result.Success)
+                Debug.LogError(uwr.error);
+            else
+            {
+                stopwatch.Stop(); // Stop the stopwatch when download completes
+                directoryDisplay.text = $"Downloaded {filename} to {localPath}";
+                ExtractZipFile(localFilePath);
+            }
+        }
+
+        IEnumerator ShowDownloadProgress()
+        {
+            while (!uwr.isDone)
+            {
+                // Calculate download speed
+                float speed = uwr.downloadedBytes / (float)stopwatch.Elapsed.TotalSeconds;
+
+                directoryDisplay.text = $"{filename} ({size}) {uwr.downloadProgress * 100:F2}% | {FormatFileSize(speed)}/s";
+                yield return null;
+            }
+        }
+
+        // Helper function to format file size
+        string FormatFileSize(float bytes)
+        {
+            string[] suffixes = { "B", "KB", "MB", "GB", "TB" };
+            int suffixIndex = 0;
+            while (bytes >= 1024 && suffixIndex < suffixes.Length - 1)
+            {
+                bytes /= 1024;
+                suffixIndex++;
+            }
+            return $"{bytes:F2} {suffixes[suffixIndex]}";
+        }
+    }
+
 
     async void ExtractZipFile(string filePath)
     {
