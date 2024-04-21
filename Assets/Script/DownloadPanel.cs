@@ -26,7 +26,7 @@ public class DownloadPanel : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.F1))
         {
             ShowDownloadPanel();
-            UpdateGameIllustration("Final Fantasy VII");
+            UpdateGameIllustration("Grand Theft Auto IV (World).zip");
         }
     }
 
@@ -78,7 +78,18 @@ public class DownloadPanel : MonoBehaviour
         IEnumerable<IImageResult> images;
         try
         {
-            images = await scraper.GetImagesAsync($"cdromance {filename}");
+            string cleanedUpName = filename;
+
+            // remove extension
+            cleanedUpName = cleanedUpName.Substring(0, cleanedUpName.LastIndexOf('.'));
+
+            // If there are parentheses, remove them and their contents using a regular expression
+            cleanedUpName = System.Text.RegularExpressions.Regex.Replace(cleanedUpName, @"\s*\(.*?\)\s*", "");
+
+
+            Debug.Log($"Searching for images for {cleanedUpName}");
+
+            images = await scraper.GetImagesAsync($"{cleanedUpName}");
 
             // Download the first image
             var firstImage = images.FirstOrDefault();

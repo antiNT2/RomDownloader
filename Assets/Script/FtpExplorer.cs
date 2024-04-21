@@ -43,6 +43,8 @@ public class FtpExplorer : MonoBehaviour
 
     UnityWebRequest currentUnityWebRequest;
 
+    Stack<string> visitedUrls = new Stack<string>();
+
     private void Start()
     {
         // TestServerResponse();
@@ -58,9 +60,15 @@ public class FtpExplorer : MonoBehaviour
 
         if (InputManager.FindAction("Player/CancelDownload").WasPerformedThisFrame())
         {
-            CancelCurrentDownload();
+            if (currentUnityWebRequest != null)
+            {
+                CancelCurrentDownload();
+            }
+            else
+            {
+                ReturnToPreviousUrl();
+            }
         }
-
     }
 
     public void CancelCurrentDownload()
@@ -82,6 +90,16 @@ public class FtpExplorer : MonoBehaviour
         NavigateToUrl(lastUrl);
     }
 
+    void ReturnToPreviousUrl()
+    {
+        if (visitedUrls.Count > 1)
+        {
+            visitedUrls.Pop();
+            string previousUrl = visitedUrls.Pop();
+            NavigateToUrl(previousUrl);
+        }
+    }
+
     public async void NavigateToUrl(string path)
     {
         if (!isConnected)
@@ -99,6 +117,7 @@ public class FtpExplorer : MonoBehaviour
         }
 
         lastUrl = path;
+        visitedUrls.Push(path);
         folderDisplayer.DisplayFilesAndFolders(content.ToArray());
         directoryDisplay.text = $"[{System.DateTime.Now}] {path} ({content.Count} elements)";
     }
@@ -128,6 +147,7 @@ public class FtpExplorer : MonoBehaviour
             var client = new HttpClient(handler);
 
             Debug.Log($"Getting content for {url}");
+            directoryDisplay.text = $"Getting content for {url}";
 
             string clientUrl = url;
 
@@ -279,7 +299,7 @@ public class FtpExplorer : MonoBehaviour
             currentUnityWebRequest.downloadHandler = new DownloadHandlerFile(localFilePath);
             yield return currentUnityWebRequest.SendWebRequest();
 
-            if(currentUnityWebRequest == null)
+            if (currentUnityWebRequest == null)
             {
                 // Aborted
 
