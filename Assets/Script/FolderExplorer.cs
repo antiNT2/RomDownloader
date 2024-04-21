@@ -32,20 +32,17 @@ public class FolderExplorer : MonoBehaviour
 
     private void Update()
     {
-        if ((Keyboard.current?.spaceKey.wasPressedThisFrame ?? false) || (Gamepad.current?.buttonSouth.wasPressedThisFrame ?? false))
-        {
-            //RefreshDirectoryDisplay();
-        }
-
-        if ((Keyboard.current?.tabKey.wasPressedThisFrame ?? false) || (Gamepad.current?.buttonNorth.wasPressedThisFrame ?? false))
+        if(InputManager.FindAction("Player/Switch").WasPerformedThisFrame())
         {
             ToggleView();
+
         }
 
-        if ((Keyboard.current?.escapeKey.wasPressedThisFrame ?? false) || (Gamepad.current?.startButton.wasPressedThisFrame ?? false))
+        if (InputManager.FindAction("Player/Quit").WasPerformedThisFrame())
         {
             CloseApp();
         }
+
     }
 
     public void CloseApp()
