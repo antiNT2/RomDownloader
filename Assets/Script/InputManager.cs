@@ -87,38 +87,38 @@ public class InputManager : MonoBehaviour
         isUsingMouse = CheckIfUsingMouse();
         Cursor.visible = isUsingMouse;
 
-        if (!isUsingMouse && !IsUiElementValid(CurrentSelectedUIElement))
-        {
-            GameObject suitableButton = GetSuitableButtonToSelect();
-            if (suitableButton != null)
-            {
-                if (!IsTypingInInputField())
-                    EventSystem.current.SetSelectedGameObject(suitableButton);
-                // Debug.Log($"AUTO Selected {suitableButton}");
-            }
-        }
-        else if (isUsingMouse && CurrentSelectedUIElement != null)
-        {
-            if (!IsTypingInInputField())
-            {
-                // If the selected UI element is an input field, we don't want to deselect it
-                EventSystem.current.SetSelectedGameObject(null);
-            }
-        }
+        //if (!isUsingMouse && !IsUiElementValid(CurrentSelectedUIElement))
+        //{
+        //    GameObject suitableButton = GetSuitableButtonToSelect();
+        //    if (suitableButton != null)
+        //    {
+        //        if (!IsTypingInInputField())
+        //            EventSystem.current.SetSelectedGameObject(suitableButton);
+        //        // Debug.Log($"AUTO Selected {suitableButton}");
+        //    }
+        //}
+        //else if (isUsingMouse && CurrentSelectedUIElement != null)
+        //{
+        //    if (!IsTypingInInputField())
+        //    {
+        //        // If the selected UI element is an input field, we don't want to deselect it
+        //        EventSystem.current.SetSelectedGameObject(null);
+        //    }
+        //}
 
-        if (CurrentSelectedUIElement != null)
-        {
-            if (lastSelectedUIElements.First?.Value != CurrentSelectedUIElement)
-            {
-                lastSelectedUIElements.AddFirst(CurrentSelectedUIElement);
-                if (lastSelectedUIElements.Count > 10)
-                {
-                    lastSelectedUIElements.RemoveLast();
-                }
-            }
-        }
+        //if (CurrentSelectedUIElement != null)
+        //{
+        //    if (lastSelectedUIElements.First?.Value != CurrentSelectedUIElement)
+        //    {
+        //        lastSelectedUIElements.AddFirst(CurrentSelectedUIElement);
+        //        if (lastSelectedUIElements.Count > 10)
+        //        {
+        //            lastSelectedUIElements.RemoveLast();
+        //        }
+        //    }
+        //}
 
-        RefreshUIElementsUnderMouse();
+        // RefreshUIElementsUnderMouse();
 
         // DebugEventRaycast();
     }
