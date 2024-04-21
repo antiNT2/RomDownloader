@@ -41,6 +41,8 @@ public class FtpExplorer : MonoBehaviour
 
     string lastUrl = "";
 
+    UnityWebRequest currentUnityWebRequest;
+
     private void Start()
     {
         // TestServerResponse();
@@ -52,6 +54,21 @@ public class FtpExplorer : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.T))
         {
             TestScraper();
+        }
+
+        if (InputManager.FindAction("Player/CancelDownload").WasPerformedThisFrame())
+        {
+            CancelCurrentDownload();
+        }
+
+    }
+
+    public void CancelCurrentDownload()
+    {
+        if (currentUnityWebRequest != null)
+        {
+            currentUnityWebRequest.Abort();
+            currentUnityWebRequest = null;
         }
     }
 
@@ -245,7 +262,7 @@ public class FtpExplorer : MonoBehaviour
         // Save the file to the local path
         string localFilePath = Path.Combine(localPath, filename);
 
-        var uwr = new UnityWebRequest(remotePath, UnityWebRequest.kHttpVerbGET);
+        currentUnityWebRequest = new UnityWebRequest(remotePath, UnityWebRequest.kHttpVerbGET);
 
         // Define a Stopwatch to measure time
         System.Diagnostics.Stopwatch stopwatch = new System.Diagnostics.Stopwatch();
@@ -259,12 +276,32 @@ public class FtpExplorer : MonoBehaviour
         IEnumerator DownloadFile()
         {
             stopwatch.Start(); // Start the stopwatch when download begins
-            uwr.downloadHandler = new DownloadHandlerFile(localFilePath);
-            yield return uwr.SendWebRequest();
-            if (uwr.result != UnityWebRequest.Result.Success)
+            currentUnityWebRequest.downloadHandler = new DownloadHandlerFile(localFilePath);
+            yield return currentUnityWebRequest.SendWebRequest();
+
+            if(currentUnityWebRequest == null)
             {
-                Debug.LogError(uwr.error);
-                directoryDisplay.text = $"Error downloading {filename}: {uwr.error}";
+                // Aborted
+
+                // Stop the stopwatch when download is aborted
+                stopwatch.Stop();
+
+                // Delete the incomplete file
+                if (File.Exists(localFilePath))
+                {
+                    File.Delete(localFilePath);
+                }
+
+                directoryDisplay.text = $"Download of {filename} aborted";
+                downloadPanel.HideDownloadPanel();
+                yield break;
+            }
+
+            if (currentUnityWebRequest.result != UnityWebRequest.Result.Success)
+            {
+                Debug.LogError(currentUnityWebRequest.error);
+                directoryDisplay.text = $"Error downloading {filename}: {currentUnityWebRequest.error}";
+                downloadPanel.HideDownloadPanel();
             }
             else
             {
@@ -277,14 +314,14 @@ public class FtpExplorer : MonoBehaviour
 
         IEnumerator ShowDownloadProgress()
         {
-            while (!uwr.isDone)
+            while (currentUnityWebRequest != null && !currentUnityWebRequest.isDone)
             {
                 // Calculate download speed
-                float speed = uwr.downloadedBytes / (float)stopwatch.Elapsed.TotalSeconds;
+                float speed = currentUnityWebRequest.downloadedBytes / (float)stopwatch.Elapsed.TotalSeconds;
 
-                directoryDisplay.text = $"{filename} ({size}) {uwr.downloadProgress * 100:F2}% | {FormatFileSize(speed)}/s";
+                directoryDisplay.text = $"{filename} ({size}) {currentUnityWebRequest.downloadProgress * 100:F2}% | {FormatFileSize(speed)}/s";
 
-                downloadPanel.UpdateDownloadProgress(uwr.downloadProgress, speed, size, uwr.downloadedBytes);
+                downloadPanel.UpdateDownloadProgress(currentUnityWebRequest.downloadProgress, speed, size, currentUnityWebRequest.downloadedBytes);
                 yield return null;
             }
         }
