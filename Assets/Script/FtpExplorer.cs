@@ -45,6 +45,8 @@ public class FtpExplorer : MonoBehaviour
 
     Stack<string> visitedUrls = new Stack<string>();
 
+    Dictionary<string, List<FolderDisplayer.ElementButton>> cachedUrlContents = new Dictionary<string, List<FolderDisplayer.ElementButton>>();
+
     private void Start()
     {
         // TestServerResponse();
@@ -135,6 +137,12 @@ public class FtpExplorer : MonoBehaviour
     {
         try
         {
+            // First check if we have the content cached
+            if (cachedUrlContents.ContainsKey(url))
+            {
+                return cachedUrlContents[url];
+            }
+
             List<FolderDisplayer.ElementButton> elements = new List<FolderDisplayer.ElementButton>();
 
             var handler = new HttpClientHandler()
@@ -218,6 +226,11 @@ public class FtpExplorer : MonoBehaviour
                 Debug.Log("No links found");
             }
 
+            // Cache the content if it's not already cached
+            if (!cachedUrlContents.ContainsKey(url))
+            {
+                cachedUrlContents.Add(url, elements);
+            }
 
 
             return elements;
